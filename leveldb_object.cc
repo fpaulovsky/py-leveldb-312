@@ -783,6 +783,12 @@ static PyMethodDef PyLevelDBSnapshot_methods[] = {
 
 static int pyleveldb_str_eq(PyObject* p, const char* s)
 {
+	// 8-bit string
+	#if PY_MAJOR_VERSION < 3
+	if (PyString_Check(p) && strcmp(PyString_AS_STRING(p), "bytewise") == 0)
+		return 1;
+	#endif
+	
 	// unicode string
 	if (PyUnicode_Check(p)) {
 		Py_ssize_t size;
