@@ -3,6 +3,7 @@
 # Copyright (c) Arni Mar Jonsson.
 #
 # Updates to setup.py/PyPi - Russell Power (power@cs.nyu.edu)
+# Last updated by Fernando Paulovsky (fernandopaulovsky@gmail.com)
 #
 #
 # See LICENSE for details.
@@ -43,11 +44,10 @@ else:
     sys.exit(1)
 
 setup(
-    name = 'leveldb',
-    version = '0.20',
-    maintainer = 'Arni Mar Jonsson',
-    maintainer_email = 'arnimarkj@gmail.com',
-    url = 'https://code.google.com/p/py-leveldb/',
+    name = 'leveldb-312',
+    version = '1.0.0',
+    maintainer = 'Fernando Paulovsky',
+    url = 'https://github.com/fpaulovsky/py-leveldb-312',
 
     classifiers = [
         'Development Status :: 4 - Beta',
@@ -65,11 +65,24 @@ setup(
         'Programming Language :: Python :: 3.1',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
         'Topic :: Database',
         'Topic :: Software Development :: Libraries'
     ],
 
     description = 'Python bindings for leveldb database library',
+    long_description = """This package provides Python 3.12 compatible bindings for the LevelDB database library.
+        LevelDB is a fast key-value storage library written at Google that provides an ordered mapping from string keys to string values. It is designed for fast storage, and is optimized for fast reads and writes.
+        It is used in many Google projects, including Chrome and Android.
+        The bindings are implemented in C++ and provide a Pythonic interface to the LevelDB library.""",
 
     ext_modules = [
         Extension('leveldb',
