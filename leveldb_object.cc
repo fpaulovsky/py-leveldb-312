@@ -791,13 +791,12 @@ static int pyleveldb_str_eq(PyObject* p, const char* s)
 
 	// unicode string
 	if (PyUnicode_Check(p)) {
-		size_t i = 0;
-		Py_UNICODE* c = PyUnicode_AS_UNICODE(p);
+		Py_ssize_t size;
+		const char* str = PyUnicode_AsUTF8AndSize(p, &size);
+		if (!str)
+			return 0;
 
-		while (s[i] && c[i] && (int)s[i] == (int)c[i])
-			i++;
-
-		return ((int)s[i] == (int)c[i]);
+		return strcmp(str, s) == 0;
 	}
 
 	return 0;
